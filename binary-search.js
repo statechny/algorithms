@@ -17,4 +17,17 @@ const binarySearch = (arr, item) => {
     return -1;
 }
 
+const recursiveBinarySearch = (arr, item, start, end) => {
+    let mid = Math.floor((start + end) / 2);
+    if(item === arr[mid]) {
+        return mid;
+    }
+    if(item < arr[mid]) {
+        return recursiveBinarySearch(arr, item, start, mid - 1)
+    } else {
+        return recursiveBinarySearch(arr, item, mid + 1, end)
+    }
+}
+
 console.log(binarySearch(array, 5));
+console.log(recursiveBinarySearch(array, 12, 0, array.length));
